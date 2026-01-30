@@ -8,7 +8,6 @@ screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 pygame.display.set_caption("Ещё хз")
 
 clock = pygame.time.Clock() 
-
 FPS = 60
 
 wallpaper = pygame.image.load("img/Wallpaper.jpg")
@@ -58,21 +57,23 @@ class Player:#Player Class
         Up = pygame.Rect(Player.getXY[0], Player.getXY[1], Player.getPlayerTextura.get_width(), 10)
         Down = pygame.Rect(Player.getXY[0], Player.getXY[1]+Player.getPlayerTextura.get_height(), Player.getPlayerTextura.get_width(), -10)
         if (Obj.colliderect(Down)):
-            print("Verx: Down")
             return "Down"
         if (Obj.colliderect(Up)):
-            print("Verx: Up")
             return "Up"
+        return "None"
+    
+    def getHBOXTestDown(Obj):
+        Down = pygame.Rect(Player.getXY[0], Player.getXY[1]+Player.getPlayerTextura.get_height()-10, Player.getPlayerTextura.get_width(), -20)
+        if (Obj.colliderect(Down)):
+            return "Down"
         return "None"
     
     def getHBOXS(Obj):
         Redy = pygame.Rect(Player.getXY[0]-10, Player.getXY[1], -10, Player.getPlayerTextura.get_height()-50)
         Left = pygame.Rect(Player.getXY[0]+Player.getPlayerTextura.get_width()+10, Player.getXY[1], -10, Player.getPlayerTextura.get_height()-50)
         if (Obj.colliderect(Left)):
-            print("Pog: Left")
             return "Left"
         if (Obj.colliderect(Redy)):
-            print("Pog: Redy")
             return "Redy"
         return "None"
 
@@ -80,19 +81,17 @@ class Player:#Player Class
 
     def PysX(Mass):
         num=0
-        PlayerHBOX = pygame.Rect(Player.getXY[0], Player.getXY[1], Player.getPlayerTextura.get_width(), Player.getPlayerTextura.get_height())
         for i in Objs:
             if (Player.getHBOXV(i.getHbox())=="Down"):
-                num+=1
+                num+=1  
+            if (Player.getHBOXTestDown(i.getHbox())=="Down"):
+                Player.getXY[1]-=5
         if (num==0):
             Player.getXY[1] += 10*Player.timeNoCal*Mass
 
     def jump(Mass):
         V = (Player.v0-10*Player.timeNoCal)*Mass
         Player.getXY[1] -= V
-        print("V: "+str(V))
-        print("v0: "+ str(Player.v0))
-        print("timeNoCal: "+ str(Player.timeNoCal))
         if (V<2):
             Player.v0=0
             
@@ -121,6 +120,9 @@ def HboxLogigs():
     for i in Objs:
         if (Player.getHBOXV(i.getHbox())=="Down"):
             Player.timeNoCal = 0
+            if (Player.getHBOXS(i.getHbox())):
+                Player.v0 = 0
+
             num+=1
 
         elif (Player.getHBOXV(i.getHbox())=="Up"):
@@ -196,11 +198,10 @@ class TestRoom:
                 screen.blit(Block2.getTexur(), Block2.getXY())
                 screen.blit(Block3.getTexur(), Block3.getXY())
 
-                HboxLogigs()
-
-                Player.PysX(0.1)
                 Player.jump(0.1)
- 
+                HboxLogigs()
+                Player.PysX(0.1)
+
             # Обновление экрана
             pygame.display.update()
             clock.tick(FPS)
