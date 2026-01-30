@@ -13,10 +13,12 @@ FPS = 60
 wallpaper = pygame.image.load("img/Wallpaper.jpg")
 button = pygame.image.load("img/Button_NotBlack.png")
 
+Smeshenie=[0,0]
 
 
 class Object:
     def __init__(self, X, Y, Texture):
+        self.XyN = [X, Y]
         self.Xy = [X, Y]
         self.Texur = pygame.image.load(Texture)
     
@@ -24,7 +26,7 @@ class Object:
         return (self.Xy[0],self.Xy[1])
 
     def setXY(self ,X, Y):
-        self.Xy = [X, Y]
+        self.Xy = [self.XyN[0]+X, self.XyN[1]+Y]
     
     def setTexture(self, Patch):
         self.Texur = pygame.image.load(Patch)
@@ -36,10 +38,10 @@ class Object:
     def getTexur(self):
         return self.Texur
     
-#-----обевление  обектов
+#-----обевление  обектов 1 цены
 Block = Object(0,700, "img/Tab.png")
-Block2 = Object(600,500, "img/Tab.png")
-Block3 = Object(800,-50, "img/Tab.png")
+Block2 = Object(400,1700, "img/Tab.png")
+Block3 = Object(800,3508, "img/Tab.png")
 
 Objs = [Block, Block2, Block3]
 
@@ -77,7 +79,8 @@ class Player:#Player Class
             return "Redy"
         return "None"
 
-
+    def getLoc():
+        return Player.getXY
 
     def PysX(Mass):
         num=0
@@ -95,6 +98,15 @@ class Player:#Player Class
         if (V<2):
             Player.v0=0
             
+
+def Camera():
+    if (Player.getXY[0]>0):
+        Smeshenie[0] = Player.getXY[0]
+    if (Player.getXY[1]>0):
+        Smeshenie[1] = Player.getXY[1]+Player.getXY[1]*2
+
+    for i in Objs:
+        i.setXY(-Smeshenie[0], -Smeshenie[1])
 
 ScreemWindows = 0
 
@@ -173,7 +185,7 @@ class TestRoom:
                     if event.key == pygame.K_F9:
                         exitIsGame()
                     elif event.key == pygame.K_SPACE:
-                        Player.v0=250
+                        Player.v0=200
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     # Нажатие кнопки мыши
                     if event.button == 1:
@@ -190,17 +202,21 @@ class TestRoom:
             
 
             if (ScreemWindows==0):
-                screen.blit(wallpaper, (0, 0))
+                screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
 
                 screen.blit(Player.getPlayerTextura, (Player.getXY[0],Player.getXY[1]))
+            
                 
                 screen.blit(Block.getTexur(), Block.getXY())
                 screen.blit(Block2.getTexur(), Block2.getXY())
                 screen.blit(Block3.getTexur(), Block3.getXY())
 
-                Player.jump(0.1)
-                HboxLogigs()
-                Player.PysX(0.1)
+
+            Player.jump(0.1)
+            HboxLogigs()
+            Player.PysX(0.1)
+            Camera()
+
 
             # Обновление экрана
             pygame.display.update()

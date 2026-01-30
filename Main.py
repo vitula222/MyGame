@@ -12,6 +12,8 @@ pygame.display.set_caption("Ещё хз")
 clock = pygame.time.Clock()   
 FPS = 60 
 
+
+
 wallpaper = pygame.image.load("img/Wallpaper.jpg")
 
 button = pygame.image.load("img/Button_NotBlack.png")
