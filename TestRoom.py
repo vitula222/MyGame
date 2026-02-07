@@ -38,12 +38,41 @@ class Object:
     def getTexur(self):
         return self.Texur
     
+class NPC:
+    def __init__(self, X, Y, Texture):
+        self.XyN = [X, Y]
+        self.Xy = [X, Y]
+        self.Texur = pygame.image.load(Texture)
+    
+    def getXY(self):
+        return (self.Xy[0],self.Xy[1])
+
+    def setXY(self ,X, Y):
+        self.Xy = [self.XyN[0]+X, self.XyN[1]+Y]
+    
+    def setTexture(self, Patch):
+        self.Texur = pygame.image.load(Patch)
+    
+    def getHbox(self):
+        return pygame.Rect(self.Xy[0], self.Xy[1], self.getTexur().get_width(), self.getTexur().get_height())
+
+    
+    def getTexur(self):
+        return self.Texur
+    
 #-----обевление  обектов 1 цены
 Block = Object(0,700, "img/Tab.png")
-Block2 = Object(400,1700, "img/Tab.png")
-Block3 = Object(800,3508, "img/Tab.png")
+Block2 = Object(400,2000, "img/Tab.png")
+Block3 = Object(800,2000, "img/Tab.png")
+Block4 = Object(1200,2000, "img/Tab.png")
+Block5 = Object(1600,2000, "img/Tab.png")
+Block6 = Object(2000,2000, "img/Tab.png")
+Block7 = Object(2400,2000, "img/Tab.png")
 
-Objs = [Block, Block2, Block3]
+npc1 = NPC(1600,1790,"img/player/stoit.jpg")
+
+Objs = [Block,Block2,Block3,Block4,Block5,Block6,Block7]
+NPCs = [npc1]
 
 class Player:#Player Class
     getXY = [0,100] # Корды НАшего слона
@@ -100,12 +129,15 @@ class Player:#Player Class
             
 
 def Camera():
-    if (Player.getXY[0]>0):
-        Smeshenie[0] = Player.getXY[0]
-    if (Player.getXY[1]>0):
-        Smeshenie[1] = Player.getXY[1]+Player.getXY[1]*2
+    if (Player.getXY[0]>860):
+        Smeshenie[0] = Player.getXY[0]-860
+    if (Player.getXY[1]>540):
+        Smeshenie[1] = Player.getXY[1]*2-540
 
     for i in Objs:
+        i.setXY(-Smeshenie[0], -Smeshenie[1])
+
+    for i in NPCs:
         i.setXY(-Smeshenie[0], -Smeshenie[1])
 
 ScreemWindows = 0
@@ -171,7 +203,7 @@ def HboxLogigs():
 
 class TestRoom:
     def Main():
-        global ScreemWindows, LKEY, RKEY
+        global ScreemWindows, LKEY, Objs
         running = True
 
 
@@ -206,10 +238,13 @@ class TestRoom:
 
                 screen.blit(Player.getPlayerTextura, (Player.getXY[0],Player.getXY[1]))
             
-                
-                screen.blit(Block.getTexur(), Block.getXY())
-                screen.blit(Block2.getTexur(), Block2.getXY())
-                screen.blit(Block3.getTexur(), Block3.getXY())
+                for i in Objs:
+                    screen.blit(i.getTexur(), i.getXY())
+
+
+                for i in NPCs:
+                    screen.blit(i.getTexur(), i.getXY())
+
 
 
             Player.jump(0.1)
