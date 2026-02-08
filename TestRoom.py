@@ -1,5 +1,6 @@
 import pygame
 import sys
+import json
 
 
 pygame.init()
@@ -14,6 +15,11 @@ wallpaper = pygame.image.load("img/Wallpaper.jpg")
 button = pygame.image.load("img/Button_NotBlack.png")
 
 Smeshenie=[0,0]
+
+Objs = []
+NPCs = []
+start_x = None
+start_y = None
 
 
 class Object:
@@ -59,23 +65,40 @@ class NPC:
     
     def getTexur(self):
         return self.Texur
-    
-#-----обевление  обектов 1 цены
-Block = Object(0,700, "img/Tab.png")
-Block2 = Object(400,2000, "img/Tab.png")
-Block3 = Object(800,2000, "img/Tab.png")
-Block4 = Object(1200,2000, "img/Tab.png")
-Block5 = Object(1600,2000, "img/Tab.png")
-Block6 = Object(2000,2000, "img/Tab.png")
-Block7 = Object(2400,2000, "img/Tab.png")
 
-npc1 = NPC(1600,1790,"img/player/stoit.jpg")
 
-Objs = [Block,Block2,Block3,Block4,Block5,Block6,Block7]
-NPCs = [npc1]
+def get_level(level_name):
+    global start_x, start_y
+    with open(level_name, "r", encoding="utf-8") as f:
+        level = json.load(f)
+
+    start_x = level["start_position"][0]
+    start_y = level["start_position"][1]
+
+    for i in level["objects"].values():
+        Objs.append(Object(i["cords"][0], i["cords"][1], i["texture"]))
+
+    for i in level["npcs"].values():
+        NPCs.append(Object(i["cords"][0], i["cords"][1], i["texture"]))
+
+get_level("levels/level1.json")
+# #-----обевление  обектов 1 цены
+# Block = Object(0,700, "img/Tab.png")
+# Block2 = Object(400,2000, "img/Tab.png")
+# Block3 = Object(800,2000, "img/Tab.png")
+# Block4 = Object(1200,2000, "img/Tab.png")
+# Block5 = Object(1600,2000, "img/Tab.png")
+# Block6 = Object(2000,2000, "img/Tab.png")
+# Block7 = Object(2400,2000, "img/Tab.png")
+# Block8 = Object(1000,500, "img/Tab.png")
+#
+# npc1 = NPC(1600,1790,"img/player/stoit.jpg")
+#
+# Objs = []
+# NPCs = []
 
 class Player:#Player Class
-    getXY = [0,0] # Корды НАшего слона
+    getXY = [start_x,start_y] # Корды НАшего слона
     center = [940,540]
     V_run_player=0
     v0 = 0
