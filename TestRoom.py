@@ -75,7 +75,8 @@ Objs = [Block,Block2,Block3,Block4,Block5,Block6,Block7]
 NPCs = [npc1]
 
 class Player:#Player Class
-    getXY = [0,100] # Корды НАшего слона
+    getXY = [0,0] # Корды НАшего слона
+    center = [940,540]
     V_run_player=0
     v0 = 0
     timeNoCal = 0
@@ -85,8 +86,8 @@ class Player:#Player Class
     getPlayerTextura = pygame.image.load("img/player/1.jpg")
 
     def getHBOXV(Obj):
-        Up = pygame.Rect(Player.getXY[0], Player.getXY[1], Player.getPlayerTextura.get_width(), 10)
-        Down = pygame.Rect(Player.getXY[0], Player.getXY[1]+Player.getPlayerTextura.get_height(), Player.getPlayerTextura.get_width(), -10)
+        Up = pygame.Rect(Player.center[0], Player.center[1], Player.getPlayerTextura.get_width(), 10)
+        Down = pygame.Rect(Player.center[0], Player.center[1]+Player.getPlayerTextura.get_height(), Player.getPlayerTextura.get_width(), -10)
         if (Obj.colliderect(Down)):
             return "Down"
         if (Obj.colliderect(Up)):
@@ -94,14 +95,14 @@ class Player:#Player Class
         return "None"
     
     def getHBOXTestDown(Obj):
-        Down = pygame.Rect(Player.getXY[0], Player.getXY[1]+Player.getPlayerTextura.get_height()-10, Player.getPlayerTextura.get_width(), -20)
+        Down = pygame.Rect(Player.center[0],Player.center[1]+Player.getPlayerTextura.get_height()-10, Player.getPlayerTextura.get_width(), -20)
         if (Obj.colliderect(Down)):
             return "Down"
         return "None"
     
     def getHBOXS(Obj):
-        Redy = pygame.Rect(Player.getXY[0]-10, Player.getXY[1], -10, Player.getPlayerTextura.get_height()-50)
-        Left = pygame.Rect(Player.getXY[0]+Player.getPlayerTextura.get_width()+10, Player.getXY[1], -10, Player.getPlayerTextura.get_height()-50)
+        Redy = pygame.Rect(Player.center[0]-10, Player.center[1], -10, Player.getPlayerTextura.get_height()-50)
+        Left = pygame.Rect(Player.center[0]+Player.getPlayerTextura.get_width()+10, Player.center[1], -10, Player.getPlayerTextura.get_height()-50)
         if (Obj.colliderect(Left)):
             return "Left"
         if (Obj.colliderect(Redy)):
@@ -117,7 +118,7 @@ class Player:#Player Class
             if (Player.getHBOXV(i.getHbox())=="Down"):
                 num+=1  
             if (Player.getHBOXTestDown(i.getHbox())=="Down"):
-                Player.getXY[1]-=5
+                Player.getXY[1] -= 1
         if (num==0):
             Player.getXY[1] += 10*Player.timeNoCal*Mass
 
@@ -129,10 +130,10 @@ class Player:#Player Class
             
 
 def Camera():
-    if (Player.getXY[0]>860):
-        Smeshenie[0] = Player.getXY[0]-860
-    if (Player.getXY[1]>540):
-        Smeshenie[1] = Player.getXY[1]*2-540
+    #if (Player.getXY[0]>860):
+    Smeshenie[0] = Player.getXY[0]
+    #if (Player.getXY[1]>540):
+    Smeshenie[1] = Player.getXY[1]
 
     for i in Objs:
         i.setXY(-Smeshenie[0], -Smeshenie[1])
@@ -164,8 +165,6 @@ def HboxLogigs():
     for i in Objs:
         if (Player.getHBOXV(i.getHbox())=="Down"):
             Player.timeNoCal = 0
-            if (Player.getHBOXS(i.getHbox())):
-                Player.v0 = 0
 
             num+=1
 
@@ -189,7 +188,6 @@ def HboxLogigs():
     elif keys[pygame.K_a]:
         for i in Objs:
             if (Player.getHBOXS(i.getHbox())=="Redy"):
-                print("ok")
                 numS+=1
         if (numS==0):
             Player.getXY[0]-=Player.speed
@@ -236,7 +234,7 @@ class TestRoom:
             if (ScreemWindows==0):
                 screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
 
-                screen.blit(Player.getPlayerTextura, (Player.getXY[0],Player.getXY[1]))
+                screen.blit(Player.getPlayerTextura, (960,540))
             
                 for i in Objs:
                     screen.blit(i.getTexur(), i.getXY())
@@ -245,13 +243,10 @@ class TestRoom:
                 for i in NPCs:
                     screen.blit(i.getTexur(), i.getXY())
 
-
-
             Player.jump(0.1)
-            HboxLogigs()
             Player.PysX(0.1)
             Camera()
-
+            HboxLogigs()
 
             # Обновление экрана
             pygame.display.update()
