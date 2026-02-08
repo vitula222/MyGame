@@ -1,18 +1,18 @@
 {
-  "start_position": [0, -100],
+  "start_position": [0, 0],
   "objects": {
     "Block1": {
-      "cords": [1000, 2000],
+      "cords": [0, 2000],
       "texture": "img/Tab.png"
     },
     "Block2": {
-      "cords": [2000, 1700],
+      "cords": [400, 2000],
       "texture": "img/Tab.png"
     }
   },
   "npcs": {
     "npc1": {
-      "cords": [1000, 500],
+      "cords": [0, 0],
       "texture": "img/player/stoit.jpg",
       "text": null
     }
