@@ -46,12 +46,6 @@ def exitIsGame():
     pygame.quit()
     sys.exit()
 
-
-
-        
-
-
-
 class Button:
 
     def Button_Play():

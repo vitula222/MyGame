@@ -191,6 +191,14 @@ def HboxLogigs():
 
             num+=1
 
+        if (Player.getHBOXS(i.getHbox())=="Left"):
+            Player.timeNoCal = 0
+            Player.v0 = 200
+
+        if (Player.getHBOXS(i.getHbox())=="Redy"):
+            Player.timeNoCal = 0
+            Player.v0 = 200
+
         elif (Player.getHBOXV(i.getHbox())=="Up"):
             Player.v0 = 0
         
@@ -238,7 +246,7 @@ class TestRoom:
                     if event.key == pygame.K_F9:
                         exitIsGame()
                     elif event.key == pygame.K_SPACE:
-                        Player.v0=200
+                        Player.v0 = 200
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     # Нажатие кнопки мыши
                     if event.button == 1:
@@ -264,6 +272,7 @@ class TestRoom:
 
             for i in NPCs:
                 screen.blit(i.getTexur(), i.getXY())
+
 
             Player.jump(0.1)
             Player.PysX(0.1)
