@@ -131,9 +131,13 @@ class Player:#Player Class
 
 def Camera():
     #if (Player.getXY[0]>860):
-    Smeshenie[0] = Player.getXY[0]
+    if(Player.getXY[0]>Smeshenie[0]):
+        Smeshenie[0] += 1
     #if (Player.getXY[1]>540):
-    Smeshenie[1] = Player.getXY[1]
+    if(Player.getXY[0]<Smeshenie[0]):
+        Smeshenie[1] -= Player.getXY[1]
+
+    print(Smeshenie)
 
     for i in Objs:
         i.setXY(-Smeshenie[0], -Smeshenie[1])
@@ -229,19 +233,18 @@ class TestRoom:
                     elif event.button == 3:
                         RKEY = False
 
-            
+        
 
-            if (ScreemWindows==0):
-                screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
+            screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
 
-                screen.blit(Player.getPlayerTextura, (960,540))
-            
-                for i in Objs:
-                    screen.blit(i.getTexur(), i.getXY())
+            screen.blit(Player.getPlayerTextura, (960,540))
+        
+            for i in Objs:
+                screen.blit(i.getTexur(), i.getXY())
 
 
-                for i in NPCs:
-                    screen.blit(i.getTexur(), i.getXY())
+            for i in NPCs:
+                screen.blit(i.getTexur(), i.getXY())
 
             Player.jump(0.1)
             Player.PysX(0.1)
