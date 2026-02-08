@@ -153,12 +153,8 @@ class Player:#Player Class
             
 
 def Camera():
-    #if (Player.getXY[0]>860):
-    if(Player.getXY[0]>Smeshenie[0]):
-        Smeshenie[0] += 1
-    #if (Player.getXY[1]>540):
-    if(Player.getXY[0]<Smeshenie[0]):
-        Smeshenie[1] -= Player.getXY[1]
+    Smeshenie[0] = Player.getXY[0]
+    Smeshenie[1] = Player.getXY[1]
 
     print(Smeshenie)
 
