@@ -106,7 +106,7 @@ class Player:#Player Class
     speed = 5
 
 
-    getPlayerTextura = pygame.image.load("img/player/1.jpg")
+    getPlayerTextura = pygame.image.load("img/player/stoitP.png")
 
     def getHBOXV(Obj):
         Up = pygame.Rect(Player.center[0], Player.center[1], Player.getPlayerTextura.get_width(), 10)
@@ -124,7 +124,7 @@ class Player:#Player Class
         return "None"
     
     def getHBOXS(Obj):
-        Redy = pygame.Rect(Player.center[0]-10, Player.center[1], -10, Player.getPlayerTextura.get_height()-50)
+        Redy = pygame.Rect(Player.center[0], Player.center[1], 10, Player.getPlayerTextura.get_height()-50)
         Left = pygame.Rect(Player.center[0]+Player.getPlayerTextura.get_width()+10, Player.center[1], -10, Player.getPlayerTextura.get_height()-50)
         if (Obj.colliderect(Left)):
             return "Left"
@@ -132,8 +132,8 @@ class Player:#Player Class
             return "Redy"
         return "None"
 
-    def getLoc():
-        return Player.getXY
+    def setTexur(name):
+        Player.getPlayerTextura = pygame.image.load("img/player/"+name)
 
     def PysX(Mass):
         num=0
@@ -192,10 +192,12 @@ def HboxLogigs():
             num+=1
 
         if (Player.getHBOXS(i.getHbox())=="Left"):
+            Player.setTexur("Left_up.png")
             Player.timeNoCal = 0
             Player.v0 = 200
 
         if (Player.getHBOXS(i.getHbox())=="Redy"):
+            Player.setTexur("Read_up.png")
             Player.timeNoCal = 0
             Player.v0 = 200
 
@@ -216,6 +218,7 @@ def HboxLogigs():
             Player.getXY[0]+=Player.speed
             if keys[pygame.K_LSHIFT]:
                 Player.getXY[0]+=Player.speed+2
+            Player.setTexur("go_left.png")
     elif keys[pygame.K_a]:
         for i in Objs:
             if (Player.getHBOXS(i.getHbox())=="Redy"):
@@ -224,6 +227,9 @@ def HboxLogigs():
             Player.getXY[0]-=Player.speed
             if keys[pygame.K_LSHIFT]:
                 Player.getXY[0]-=Player.speed+2
+            Player.setTexur("go_Read.png")
+    else:
+        Player.setTexur("stoitP.png")
 
 
 
@@ -260,7 +266,8 @@ class TestRoom:
                     elif event.button == 3:
                         RKEY = False
 
-        
+
+
 
             screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
 
@@ -273,12 +280,10 @@ class TestRoom:
             for i in NPCs:
                 screen.blit(i.getTexur(), i.getXY())
 
-
             Player.jump(0.1)
             Player.PysX(0.1)
             Camera()
             HboxLogigs()
-
             # Обновление экрана
             pygame.display.update()
             clock.tick(FPS)
