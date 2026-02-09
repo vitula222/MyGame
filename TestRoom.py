@@ -21,6 +21,7 @@ NPCs = []
 start_x = None
 start_y = None
 
+JumpOtSten = False
 
 class Object:
     def __init__(self, X, Y, Texture):
@@ -192,14 +193,18 @@ def HboxLogigs():
             num+=1
 
         if (Player.getHBOXS(i.getHbox())=="Left"):
-            Player.setTexur("Left_up.png")
-            Player.timeNoCal = 0
-            Player.v0 = 200
+            if (JumpOtSten):
+                Player.setTexur("Left_up.png")
+                Player.timeNoCal = 0
+                Player.v0 = 200
 
         if (Player.getHBOXS(i.getHbox())=="Redy"):
-            Player.setTexur("Read_up.png")
-            Player.timeNoCal = 0
-            Player.v0 = 200
+            if (JumpOtSten):
+                Player.setTexur("Read_up.png")
+
+                Player.timeNoCal = 0
+                Player.v0 = 200
+            
 
         elif (Player.getHBOXV(i.getHbox())=="Up"):
             Player.v0 = 0
@@ -238,7 +243,7 @@ def HboxLogigs():
 
 class TestRoom:
     def Main():
-        global ScreemWindows, LKEY, Objs
+        global ScreemWindows, LKEY, Objs,JumpOtSten
         running = True
 
 
@@ -252,7 +257,11 @@ class TestRoom:
                     if event.key == pygame.K_F9:
                         exitIsGame()
                     elif event.key == pygame.K_SPACE:
+                        JumpOtSten =True
                         Player.v0 = 200
+                elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_SPACE:
+                        JumpOtSten = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     # Нажатие кнопки мыши
                     if event.button == 1:
