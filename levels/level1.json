@@ -2,8 +2,8 @@
   "start_position": [0, 0],
   "objects": {
     "Block1": {
-      "cords": [0, 2000],
-      "texture": "img/Tab.png"
+      "cords": [0, 0],
+      "texture": "img/Стена2.png"
     },
     "Block2": {
       "cords": [400, 2000],
