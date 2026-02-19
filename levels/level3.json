@@ -1,0 +1,78 @@
+{
+  "start_position": [
+    300,
+    1600
+  ],
+  "objects": {
+    "Floor": {
+      "cords": [
+        -1000,
+        1800
+      ],
+      "texture": "img/Стена3.png"
+    },
+    "Block0": {
+      "cords": [
+        -1000,
+        -600
+      ],
+      "texture": "img/Стена4.png"
+    },
+    "Block1": {
+      "cords": [
+        600,
+        1700
+      ],
+      "texture": "img/Smail_Button.png"
+    },
+    "Block2": {
+      "cords": [
+        800,
+        1600
+      ],
+      "texture": "img/Smail_Button.png"
+    },
+    "Block3": {
+      "cords": [
+        1000,
+        1500
+      ],
+      "texture": "img/Smail_Button.png"
+    },
+    "Block4": {
+      "cords": [
+        1200,
+        1400
+      ],
+      "texture": "img/Smail_Button.png"
+    },
+    "Block5": {
+      "cords": [
+        1400,
+        1300
+      ],
+      "texture": "img/Smail_Button.png"
+    },
+    "Block6": {
+      "cords": [
+        2000,
+        1300
+      ],
+      "texture": "img/Tab.png"
+    },
+    "Block01": {
+      "cords": [
+        3500,
+        -600
+      ],
+      "texture": "img/Стена4.png"
+    }
+  },
+  "npcs": {
+    "npc1": {
+      "cords": [200, 1550],
+      "texture": "img/player/stoit.jpg",
+      "text": null
+    }
+  }
+}
