@@ -136,7 +136,7 @@ def Main():
             Button.Button_Setings()
 
         elif (ScreemWindows==1):
-            if(SetingsMenau.Button_Back(screen, LKEY)==0):
+            if(SetingsMenu.Button_Back(screen, LKEY)==0):
                 ScreemWindows = 0
             SetingsMenu.Button_Vol(screen, LKEY)
             SetingsMenu.Tab(screen, LKEY)
@@ -144,7 +144,7 @@ def Main():
 
 
 
-        text = font.render("Ver: 0.1", True, (0, 0, 0))
+        text = font.render("Ver: 0.9", True, (0, 0, 0))
         screen.blit(text, (1825, 1048))     
         # Обновление экрана
         pygame.display.update()

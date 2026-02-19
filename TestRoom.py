@@ -16,6 +16,7 @@ button = pygame.image.load("img/Button_NotBlack.png")
 
 wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
 
+statusDJump = True
 
 Smeshenie=[0,0]
 
@@ -29,10 +30,11 @@ JumpOtSten = False
 DialogMenu = True
 
 class Object:
-    def __init__(self, X, Y, Texture):
+    def __init__(self, X, Y, Texture,NBT):
         self.XyN = [X, Y]
         self.Xy = [X, Y]
         self.Texur = pygame.image.load(Texture)
+        self.NBT = NBT
     
     def getXY(self):
         return (self.Xy[0],self.Xy[1])
@@ -46,14 +48,17 @@ class Object:
     def getHbox(self):
         return pygame.Rect(self.Xy[0], self.Xy[1], self.getTexur().get_width(), self.getTexur().get_height())
 
-    
     def getTexur(self):
         return self.Texur
+    
+    def getNBT(self):
+        return self.NBT
     
 class NPC:
-    def __init__(self, X, Y, Texture):
+    def __init__(self, X, Y, Texture,Text):
         self.XyN = [X, Y]
         self.Xy = [X, Y]
+        self.Text = Text
         self.Texur = pygame.image.load(Texture)
     
     def getXY(self):
@@ -68,10 +73,14 @@ class NPC:
     def getHbox(self):
         return pygame.Rect(self.Xy[0], self.Xy[1], self.getTexur().get_width(), self.getTexur().get_height())
 
-    
     def getTexur(self):
         return self.Texur
 
+    def setText(self,text):
+        self.Text = text
+    
+    def getText(self):
+        return self.Text
 
 def get_level(level_name):
     global start_x, start_y
@@ -82,27 +91,13 @@ def get_level(level_name):
     start_y = level["start_position"][1]
 
     for i in level["objects"].values():
-        Objs.append(Object(i["cords"][0]+940, i["cords"][1]+540, i["texture"]))
+        Objs.append(Object(i["cords"][0]+940, i["cords"][1]+540, i["texture"],i["NBT"]))
 
     if level["npcs"] != None:
         for i in level["npcs"].values():
-            NPCs.append(Object(i["cords"][0]+940, i["cords"][1]+540, i["texture"]))
+            NPCs.append(NPC(i["cords"][0]+940, i["cords"][1]+540, i["texture"],i["text"]))
 
 get_level("levels/level2.json")
-# #-----обевление  обектов 1 цены
-# Block = Object(0,700, "img/Tab.png")
-# Block2 = Object(400,2000, "img/Tab.png")
-# Block3 = Object(800,2000, "img/Tab.png")
-# Block4 = Object(1200,2000, "img/Tab.png")
-# Block5 = Object(1600,2000, "img/Tab.png")
-# Block6 = Object(2000,2000, "img/Tab.png")
-# Block7 = Object(2400,2000, "img/Tab.png")
-# Block8 = Object(1000,500, "img/Tab.png")
-#
-# npc1 = NPC(1600,1790,"img/player/stoit.jpg")
-#
-# Objs = []
-# NPCs = []
 
 class Player:#Player Class
     getXY = [start_x,start_y] # Корды НАшего слона
@@ -194,20 +189,23 @@ def HboxLogigs():
     num=0
     for i in Objs:
         if (Player.getHBOXV(i.getHbox())=="Down"):
-            Player.timeNoCal = 0
+            #------------------тут условия для NBT
+            if (i.getNBT()=="kill"):
+                Player.getXY = [start_x,start_y]
 
+
+            Player.timeNoCal = 0
             num+=1
 
         if (Player.getHBOXS(i.getHbox())=="Left"):
-            if (JumpOtSten):
+            if (JumpOtSten and statusDJump):
                 Player.setTexur("Left_up.png")
                 Player.timeNoCal = 0
                 Player.v0 = 200
 
-        if (Player.getHBOXS(i.getHbox())=="Redy"):
-            if (JumpOtSten):
+        elif (Player.getHBOXS(i.getHbox())=="Redy"):
+            if (JumpOtSten and statusDJump):
                 Player.setTexur("Read_up.png")
-
                 Player.timeNoCal = 0
                 Player.v0 = 200
             
@@ -249,7 +247,8 @@ def HboxLogigs():
 
 class TestRoom:
     def Main():
-        global ScreemWindows, LKEY, Objs,JumpOtSten
+        global ScreemWindows, LKEY, Objs,JumpOtSten,wallpaperTextMenu
+
         running = True
 
 
@@ -285,26 +284,22 @@ class TestRoom:
 
 
             screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
-
+    
             screen.blit(Player.getPlayerTextura, (960,540))
 
-
-        
             for i in Objs:
                 screen.blit(i.getTexur(), i.getXY())
-
 
             for i in NPCs:
                 screen.blit(i.getTexur(), i.getXY())
                 if (Player.getHBOXS(i.getHbox())!="None"):
-                    DialogMenu = True
-                else:
-                    DialogMenu = False
-
-
-
-            if (DialogMenu):
-                screen.blit(wallpaperTextMenu,(520,830))
+                    screen.blit(wallpaperTextMenu,(520,830))
+                    strS = i.getText().split("\n")
+                    ints = 0
+                    for a in strS:
+                        text = font.render(a, True, (255, 255, 255))
+                        screen.blit(text, (530, 840+20*ints)) 
+                        ints+=1
 
             Player.jump(0.1)
             Player.PysX(0.1)

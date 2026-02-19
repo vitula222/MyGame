@@ -1,48 +1,42 @@
 {
-  "start_position": [300, 1600],
+  "start_position": [600, 1300],
   "objects": {
-    "Floor": {
-      "cords": [-1000, 1800],
-      "texture": "img/Стена3.png"
-    },
-    "Block0": {
-      "cords": [-1000, -600],
-      "texture": "img/Стена4.png"
-    },
     "Block1": {
       "cords": [600, 1600],
-      "texture": "img/Tab.png"
+      "texture": "img/Tab.png",
+      "NBT": null
     },
     "Block2": {
       "cords": [1000, 1450],
-      "texture": "img/Tab.png"
+      "texture": "img/Tab.png",
+      "NBT": "kill"
     },
     "Block3": {
       "cords": [1830, 1450],
-      "texture": "img/Tab.png"
+      "texture": "img/Tab.png",
+      "NBT": null
     },
     "Block4": {
       "cords": [2000, 1250],
-      "texture": "img/Tab.png"
+      "texture": "img/Tab.png",
+      "NBT": null
     },
     "Block5": {
       "cords": [2800, 1250],
-      "texture": "img/Smail_Button.png"
+      "texture": "img/Smail_Button.png",
+      "NBT": null
     },
     "Block6": {
       "cords": [3150, 1250],
-      "texture": "img/Tab.png"
-    },
-    "Block01": {
-      "cords": [3500, -600],
-      "texture": "img/Стена4.png"
+      "texture": "img/Tab.png",
+      "NBT": null
     }
   },
   "npcs": {
     "npc1": {
-      "cords": [200, 1550],
+      "cords": [600, 1550],
       "texture": "img/player/stoit.jpg",
-      "text": null
+      "text": "123\nTest"
     }
   }
 }
