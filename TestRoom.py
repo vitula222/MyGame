@@ -84,7 +84,9 @@ class NPC:
         return self.Text
 
 def get_level(level_name):
-    global start_x, start_y
+    global start_x, start_y,Objs,NPCs
+    Objs = []
+    NPCs = []
     with open(level_name, "r", encoding="utf-8") as f:
         level = json.load(f)
 
@@ -186,10 +188,7 @@ def exitIsGame():
 
 #логика физики для обектов
 def HboxLogigs():
-    global level
-    global objects
-    global NPCs
-    PlayerHBOX = pygame.Rect(Player.getXY[0], Player.getXY[1], Player.getPlayerTextura.get_width(), Player.getPlayerTextura.get_height())
+    global level,Objs,NPCs
     num=0
     for i in Objs:
         if (Player.getHBOXV(i.getHbox())=="Down"):
@@ -199,8 +198,6 @@ def HboxLogigs():
 
             if (i.getNBT()=="next"):
                 level += 1
-                objects = []
-                NPCs = []
                 get_level(f"levels/level{str(level)}.json")
 
 
