@@ -9,7 +9,7 @@
     "Block2": {
       "cords": [1000, 1450],
       "texture": "img/Tab.png",
-      "NBT": "kill"
+      "NBT": "next"
     },
     "Block3": {
       "cords": [1830, 1450],

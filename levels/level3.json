@@ -9,63 +9,72 @@
         -1000,
         1800
       ],
-      "texture": "img/Стена3.png"
+      "texture": "img/Стена3.png",
+      "NBT": null
     },
     "Block0": {
       "cords": [
         -1000,
         -600
       ],
-      "texture": "img/Стена4.png"
+      "texture": "img/Стена4.png",
+      "NBT": null
     },
     "Block1": {
       "cords": [
         600,
         1700
       ],
-      "texture": "img/Smail_Button.png"
+      "texture": "img/Smail_Button.png",
+      "NBT": null
     },
     "Block2": {
       "cords": [
         800,
         1600
       ],
-      "texture": "img/Smail_Button.png"
+      "texture": "img/Smail_Button.png",
+      "NBT": null
     },
     "Block3": {
       "cords": [
         1000,
         1500
       ],
-      "texture": "img/Smail_Button.png"
+      "texture": "img/Smail_Button.png",
+      "NBT": null
     },
     "Block4": {
       "cords": [
         1200,
         1400
       ],
-      "texture": "img/Smail_Button.png"
+      "texture": "img/Smail_Button.png",
+      "NBT": null
     },
     "Block5": {
       "cords": [
         1400,
         1300
       ],
-      "texture": "img/Smail_Button.png"
+      "texture": "img/Smail_Button.png",
+      "NBT": null
     },
     "Block6": {
       "cords": [
         2000,
         1300
       ],
-      "texture": "img/Tab.png"
+      "texture": "img/Tab.png",
+      "NBT": null
     },
     "Block01": {
       "cords": [
         3500,
         -600
       ],
-      "texture": "img/Стена4.png"
+      "texture": "img/Стена4.png",
+      "NBT": null
     }
   },
   "npcs": {

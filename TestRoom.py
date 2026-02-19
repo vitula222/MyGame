@@ -15,6 +15,7 @@ wallpaper = pygame.image.load("img/Wallpaper.jpg")
 button = pygame.image.load("img/Button_NotBlack.png")
 
 wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
+level = 2
 
 statusDJump = True
 
@@ -97,7 +98,7 @@ def get_level(level_name):
         for i in level["npcs"].values():
             NPCs.append(NPC(i["cords"][0]+940, i["cords"][1]+540, i["texture"],i["text"]))
 
-get_level("levels/level2.json")
+get_level(f"levels/level{level}.json")
 
 class Player:#Player Class
     getXY = [start_x,start_y] # Корды НАшего слона
@@ -185,6 +186,9 @@ def exitIsGame():
 
 #логика физики для обектов
 def HboxLogigs():
+    global level
+    global objects
+    global NPCs
     PlayerHBOX = pygame.Rect(Player.getXY[0], Player.getXY[1], Player.getPlayerTextura.get_width(), Player.getPlayerTextura.get_height())
     num=0
     for i in Objs:
@@ -192,6 +196,12 @@ def HboxLogigs():
             #------------------тут условия для NBT
             if (i.getNBT()=="kill"):
                 Player.getXY = [start_x,start_y]
+
+            if (i.getNBT()=="next"):
+                level += 1
+                objects = []
+                NPCs = []
+                get_level(f"levels/level{str(level)}.json")
 
 
             Player.timeNoCal = 0
