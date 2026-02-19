@@ -84,10 +84,11 @@ def get_level(level_name):
     for i in level["objects"].values():
         Objs.append(Object(i["cords"][0]+940, i["cords"][1]+540, i["texture"]))
 
-    for i in level["npcs"].values():
-        NPCs.append(Object(i["cords"][0]+940, i["cords"][1]+540, i["texture"]))
+    if level["npcs"] != None:
+        for i in level["npcs"].values():
+            NPCs.append(Object(i["cords"][0]+940, i["cords"][1]+540, i["texture"]))
 
-get_level("levels/level1.json")
+get_level("levels/level2.json")
 # #-----обевление  обектов 1 цены
 # Block = Object(0,700, "img/Tab.png")
 # Block2 = Object(400,2000, "img/Tab.png")

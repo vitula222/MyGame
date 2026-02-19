@@ -1,21 +1,78 @@
 {
-  "start_position": [0, 0],
+  "start_position": [200, 0],
   "objects": {
     "Block1": {
+<<<<<<< HEAD
       "cords": [0, 0],
       "texture": "img/Tab.png"
     },
     "Block2": {
       "cords": [300, 2000],
       "texture": "img/Tab.png"
+=======
+      "cords": [-1000, -600],
+      "texture": "img/Стена2.png"
+    },
+    "Block2": {
+      "cords": [-1000, 0],
+      "texture": "img/Стена2.png"
+>>>>>>> 7621a8268fad10a317758721e8fab6e962aad970
     },
     "Block3": {
-      "cords": [1100, 1600],
-      "texture": "img/Tab.png"
+      "cords": [-1000, 600],
+      "texture": "img/Стена2.png"
     },
     "Block4": {
-      "cords": [300, 1200],
-      "texture": "img/Tab.png"
+      "cords": [-1000, 1200],
+      "texture": "img/Стена2.png"
+    },
+    "Block5": {
+      "cords": [-1000, 1800],
+      "texture": "img/Стена2.png"
+    },
+    "Block11": {
+      "cords": [-650, -600],
+      "texture": "img/Стена2.png"
+    },
+    "Block21": {
+      "cords": [-650, 0],
+      "texture": "img/Стена2.png"
+    },
+    "Block31": {
+      "cords": [-650, 600],
+      "texture": "img/Стена2.png"
+    },
+    "Block41": {
+      "cords": [-650, 1200],
+      "texture": "img/Стена2.png"
+    },
+    "Block51": {
+      "cords": [-650, 1800],
+      "texture": "img/Стена2.png"
+    },
+    "Block12": {
+      "cords": [-300, -600],
+      "texture": "img/Стена2.png"
+    },
+    "Block22": {
+      "cords": [-300, 0],
+      "texture": "img/Стена2.png"
+    },
+    "Block32": {
+      "cords": [-300, 600],
+      "texture": "img/Стена2.png"
+    },
+    "Block42": {
+      "cords": [-300, 1200],
+      "texture": "img/Стена2.png"
+    },
+    "Block52": {
+      "cords": [-300, 1800],
+      "texture": "img/Стена2.png"
+    },
+    "Block53": {
+      "cords": [50, 1800],
+      "texture": "img/Стена3.png"
     }
   },
   "npcs": {
