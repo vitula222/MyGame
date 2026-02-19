@@ -1,7 +1,6 @@
 import pygame
 import sys
 from Setings import SetingsMenu 
-import time
 from TestRoom import TestRoom
 
 pygame.init()
@@ -137,7 +136,7 @@ def Main():
             Button.Button_Setings()
 
         elif (ScreemWindows==1):
-            if(SetingsMenu.Button_Back(screen, LKEY)==0):
+            if(SetingsMenau.Button_Back(screen, LKEY)==0):
                 ScreemWindows = 0
             SetingsMenu.Button_Vol(screen, LKEY)
             SetingsMenu.Tab(screen, LKEY)

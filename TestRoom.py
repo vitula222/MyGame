@@ -14,6 +14,9 @@ FPS = 60
 wallpaper = pygame.image.load("img/Wallpaper.jpg")
 button = pygame.image.load("img/Button_NotBlack.png")
 
+wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
+
+
 Smeshenie=[0,0]
 
 Objs = []
@@ -22,6 +25,8 @@ start_x = None
 start_y = None
 
 JumpOtSten = False
+
+DialogMenu = True
 
 class Object:
     def __init__(self, X, Y, Texture):
@@ -282,6 +287,8 @@ class TestRoom:
             screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
 
             screen.blit(Player.getPlayerTextura, (960,540))
+
+
         
             for i in Objs:
                 screen.blit(i.getTexur(), i.getXY())
@@ -289,6 +296,15 @@ class TestRoom:
 
             for i in NPCs:
                 screen.blit(i.getTexur(), i.getXY())
+                if (Player.getHBOXS(i.getHbox())!="None"):
+                    DialogMenu = True
+                else:
+                    DialogMenu = False
+
+
+
+            if (DialogMenu):
+                screen.blit(wallpaperTextMenu,(520,830))
 
             Player.jump(0.1)
             Player.PysX(0.1)
