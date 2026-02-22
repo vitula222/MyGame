@@ -214,6 +214,9 @@ def HboxLogigs():
             if (i.getNBT()=="give"):
                 statusDJump = True
 
+            if (i.getNBT()=="exit"):
+                exitIsGame()
+
             Player.timeNoCal = 0
             num+=1
 
