@@ -322,6 +322,7 @@ class TestRoom:
                         text = font.render(a, True, (255, 255, 255))
                         screen.blit(text, (530, 840+20*ints)) 
                         ints+=1
+                        
 
             Player.jump(0.1)
             Player.PysX(0.1)
