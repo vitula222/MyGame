@@ -14,6 +14,8 @@ music_jump = pygame.mixer.Sound("music/jump.mp3")
 music_jump.set_volume(int(Read_File()['Vol']['All_music'])/10)  
 
 
+
+
 screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 pygame.display.set_caption("Ещё хз")
 
@@ -266,7 +268,9 @@ def HboxLogigs():
 class TestRoom:
     def Main():
         global ScreemWindows, LKEY, Objs,JumpOtSten,wallpaperTextMenu,statusDJump
-
+        pygame.mixer.music.load("music/Music_1.mp3")
+        pygame.mixer.music.set_volume(0.1)
+        pygame.mixer.music.play()
         running = True
 
 

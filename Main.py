@@ -11,6 +11,8 @@ def Read_File():
 pygame.init()
 pygame.mixer.init()
 music_Nav = pygame.mixer.Sound("music/switch_button.mp3")
+pygame.mixer.music.load("music/MainMenu.mp3")
+
 
 
 screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
@@ -75,6 +77,8 @@ class Button:
                 music_Nav.play()
                 Button.play = False
             if (LKEY):
+                pygame.mixer.music.stop()
+                pygame.mixer.music.unload()
                 TestRoom.Main()
         else:
             Button.play = True
@@ -118,8 +122,9 @@ def ScreenLoop():
         WallPaperXY[2] =0
 
 def Main():
-    global ScreemWindows, LKEY, RKEY
+    global ScreemWindows, LKEY, RKEY,Gmusic
     running = True
+    pygame.mixer.music.play()
 
     while running:
         # Обработка событий
@@ -148,6 +153,7 @@ def Main():
 
         ScreenLoop()
         music_Nav.set_volume(int(Read_File()['Vol']['All_music'])/10)  
+        pygame.mixer.music.set_volume(int(Read_File()['Vol']['All_music'])/10)
 
         if (ScreemWindows==0):
 
