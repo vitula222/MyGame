@@ -198,7 +198,7 @@ def exitIsGame():
 
 #логика физики для обектов
 def HboxLogigs():
-    global level,Objs,NPCs
+    global level,Objs,NPCs,JumpOtSten,statusDJump
     num=0
     for i in Objs:
         if (Player.getHBOXV(i.getHbox())=="Down"):
@@ -249,7 +249,7 @@ def HboxLogigs():
                 Player.getXY[0]+=Player.speed+2
             Player.setTexur("go_left.png")
     elif keys[pygame.K_a]:
-        for i in Objs:
+        for i in Objs: 
             if (Player.getHBOXS(i.getHbox())=="Redy"):
                 numS+=1
         if (numS==0):
