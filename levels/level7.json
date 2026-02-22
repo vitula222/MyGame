@@ -17,9 +17,19 @@
       "texture": "img/Стена2.png",
       "NBT": null
     },
-    "Spikes2": {
+    "Spikes": {
       "cords": [2000, 1150],
       "texture": "img/Spikes.png",
+      "NBT": "kill"
+    },
+    "Portal": {
+      "cords": [1500, 600],
+      "texture": "img/Green_Portal.png",
+      "NBT": null
+    },
+    "Teleport": {
+      "cords": [1500, 600],
+      "texture": "img/Green_Portal.png",
       "NBT": null
     },
     "Big_Spikes1": {
@@ -52,7 +62,7 @@
     "npc1": {
       "cords": [1100, 1650],
       "texture": "img/enot.png",
-      "text": "На верхушку этой платформы лучше не вставать! Попробуй отскачить от стены в портал."
+      "text": "На верхушку этой платформы лучше не вставать!\nПопробуй отскачить от стены в портал (Зажми A пока корабкаешься).\n(Напомню, что что бы залесть на стену нужно зажать пробел)"
     }
   }
 }

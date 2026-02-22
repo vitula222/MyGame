@@ -25,7 +25,7 @@ button = pygame.image.load("img/Button_NotBlack.png")
 
 wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
 
-level = 1
+level = 8
 
 statusDJump = False
 
@@ -314,7 +314,7 @@ class TestRoom:
 
             for i in NPCs:
                 screen.blit(i.getTexur(), i.getXY())
-                if (Player.getHBOXS(i.getHbox())!="None" and i.getText != "null"):
+                if (Player.getHBOXS(i.getHbox())!="None"):
                     screen.blit(wallpaperTextMenu,(520,830))
                     strS = i.getText().split("\n")
                     ints = 0
