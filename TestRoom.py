@@ -314,7 +314,7 @@ class TestRoom:
 
             for i in NPCs:
                 screen.blit(i.getTexur(), i.getXY())
-                if (Player.getHBOXS(i.getHbox())!="None"):
+                if (Player.getHBOXS(i.getHbox())!="None" and i.getText() != "null"):
                     screen.blit(wallpaperTextMenu,(520,830))
                     strS = i.getText().split("\n")
                     ints = 0
@@ -322,7 +322,7 @@ class TestRoom:
                         text = font.render(a, True, (255, 255, 255))
                         screen.blit(text, (530, 840+20*ints)) 
                         ints+=1
-                        
+
 
             Player.jump(0.1)
             Player.PysX(0.1)
