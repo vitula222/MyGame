@@ -15,9 +15,10 @@ wallpaper = pygame.image.load("img/Wallpaper.jpg")
 button = pygame.image.load("img/Button_NotBlack.png")
 
 wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
-level = 2
 
-statusDJump = True
+level = 3
+
+statusDJump = False
 
 Smeshenie=[0,0]
 
@@ -199,6 +200,7 @@ def HboxLogigs():
             if (i.getNBT()=="next"):
                 level += 1
                 get_level(f"levels/level{str(level)}.json")
+                Player.getXY = [start_x, start_y]
 
 
             Player.timeNoCal = 0
@@ -254,7 +256,7 @@ def HboxLogigs():
 
 class TestRoom:
     def Main():
-        global ScreemWindows, LKEY, Objs,JumpOtSten,wallpaperTextMenu
+        global ScreemWindows, LKEY, Objs,JumpOtSten,wallpaperTextMenu,statusDJump
 
         running = True
 

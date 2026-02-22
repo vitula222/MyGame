@@ -1,20 +1,62 @@
 {
-  "start_position": [200, 0],
+  "start_position": [1200, 0],
   "objects": {
     "Block1": {
-      "cords": [-1000, -600],
-      "texture": "img/Стена4.png"
+      "cords": [1050, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
     },
-    "Block53": {
-      "cords": [50, 1800],
-      "texture": "img/Стена3.png"
+    "Block2": {
+      "cords": [1350, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block3": {
+      "cords": [1650, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block4": {
+      "cords": [1950, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block7": {
+      "cords": [2250, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block8": {
+      "cords": [2550, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block9": {
+      "cords": [2850, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Teleport": {
+      "cords": [3040, 1800],
+      "texture": "img/Trigger.png",
+      "NBT": "next"
+    },
+    "Portal": {
+      "cords": [3050, 1600],
+      "texture": "img/Green_Portal.png",
+      "NBT": null
+    },
+    "Big_Spikes": {
+      "cords": [-100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
     }
   },
   "npcs": {
     "npc1": {
-      "cords": [0, 0],
+      "cords": [1120, 1550],
       "texture": "img/player/stoit.jpg",
-      "text": null
+      "text": "Добро пожаловать на Фестиваль Изобретений с Рокет Боссом!\nСейчас ты находишься в корманном измерение,\nкоторое Рокет Босс создал в своей мусорке\n(мда, не лучшее место для проведения фестиваля).\nТы попал в достаточно отдалённую часть мусорки, так что до\nфестиваля тебе ещё предстоит как то добраться.\nКстати я Енот, мне ещё просто модельку Рокет Босс не успел сделать.\nДвигаться на AD. Я помогу тебя добраться до фестиваля.\nВ переди будет зелёный потрал, для прохода на следующий уровень"
     }
   }
 }

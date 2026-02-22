@@ -1,28 +1,20 @@
 {
   "start_position": [
-    300,
+    1300,
     1600
   ],
   "objects": {
-    "Floor": {
-      "cords": [
-        -1000,
-        1800
-      ],
-      "texture": "img/Стена3.png",
-      "NBT": null
-    },
     "Block0": {
       "cords": [
-        -1000,
-        -600
+        1000,
+        1800
       ],
-      "texture": "img/Стена4.png",
+      "texture": "img/Tab.png",
       "NBT": null
     },
     "Block1": {
       "cords": [
-        600,
+        1600,
         1700
       ],
       "texture": "img/Smail_Button.png",
@@ -30,7 +22,7 @@
     },
     "Block2": {
       "cords": [
-        800,
+        1800,
         1600
       ],
       "texture": "img/Smail_Button.png",
@@ -38,7 +30,7 @@
     },
     "Block3": {
       "cords": [
-        1000,
+        2000,
         1500
       ],
       "texture": "img/Smail_Button.png",
@@ -46,7 +38,7 @@
     },
     "Block4": {
       "cords": [
-        1200,
+        2200,
         1400
       ],
       "texture": "img/Smail_Button.png",
@@ -54,7 +46,7 @@
     },
     "Block5": {
       "cords": [
-        1400,
+        2400,
         1300
       ],
       "texture": "img/Smail_Button.png",
@@ -62,26 +54,43 @@
     },
     "Block6": {
       "cords": [
-        2000,
+        3000,
         1300
       ],
       "texture": "img/Tab.png",
       "NBT": null
     },
-    "Block01": {
-      "cords": [
-        3500,
-        -600
-      ],
-      "texture": "img/Стена4.png",
+    "Teleport": {
+      "cords": [3190, 1300],
+      "texture": "img/Trigger.png",
+      "NBT": "next"
+    },
+    "Portal": {
+      "cords": [3200, 1100],
+      "texture": "img/Green_Portal.png",
       "NBT": null
+    },
+    "Big_Spikes1": {
+      "cords": [-100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes2": {
+      "cords": [1100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes3": {
+      "cords": [2300, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
     }
   },
   "npcs": {
     "npc1": {
-      "cords": [200, 1550],
+      "cords": [1200, 1550],
       "texture": "img/player/stoit.jpg",
-      "text": null
+      "text": "Зажми Shift что бы бежать"
     }
   }
 }
