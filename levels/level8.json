@@ -1,7 +1,7 @@
 {
   "start_position": [
-    1500,
-    400
+    1300,
+    1600
   ],
   "objects": {
     "Block1": {
@@ -14,17 +14,17 @@
     },
     "Block2": {
       "cords": [1500, 1400],
-      "texture": "img/Стена2.png",
+      "texture": "img/Стена.png",
       "NBT": null
     },
     "Block3": {
       "cords": [1500, 900],
-      "texture": "img/Стена2.png",
+      "texture": "img/Стена.png",
       "NBT": null
     },
     "Block4": {
       "cords": [1500, 400],
-      "texture": "img/Стена2.png",
+      "texture": "img/Стена.png",
       "NBT": null
     },
     "Portal": {
@@ -63,11 +63,6 @@
       "cords": [1100, 1650],
       "texture": "img/enot.png",
       "text": "Поднимись наверх и спрыгни прямиком в потрал.\nОн будет где то внизу, так что ты его не сразу увидишь."
-    },
-    "npc2": {
-      "cords": [1250, 1650],
-      "texture": "img/enot.png",
-      "text": "null"
     }
   }
 }

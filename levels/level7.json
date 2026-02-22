@@ -10,11 +10,11 @@
         1800
       ],
       "texture": "img/block.png",
-      "NBT": null
+      "NBT": "give"
     },
     "Block2": {
       "cords": [2000, 1200],
-      "texture": "img/Стена2.png",
+      "texture": "img/Стена.png",
       "NBT": null
     },
     "Spikes": {
@@ -28,9 +28,9 @@
       "NBT": null
     },
     "Teleport": {
-      "cords": [1500, 600],
-      "texture": "img/Green_Portal.png",
-      "NBT": null
+      "cords": [1570, 990],
+      "texture": "img/Trigger.png",
+      "NBT": "next"
     },
     "Big_Spikes1": {
       "cords": [-100, 2500],

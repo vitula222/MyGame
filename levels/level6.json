@@ -14,7 +14,7 @@
     },
     "Block2": {
       "cords": [1500, 1400],
-      "texture": "img/Стена2.png",
+      "texture": "img/Стена.png",
       "NBT": null
     },
     "Teleport": {
