@@ -27,7 +27,7 @@ button = pygame.image.load("img/Button_NotBlack.png")
 
 wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
 
-level = 8
+level = 1
 
 statusDJump = True
 
@@ -213,6 +213,9 @@ def HboxLogigs():
 
             if (i.getNBT()=="give"):
                 statusDJump = True
+
+            if (i.getNBT()=="exit"):
+                exitIsGame()
 
             Player.timeNoCal = 0
             num+=1
