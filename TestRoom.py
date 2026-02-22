@@ -269,7 +269,7 @@ class TestRoom:
     def Main():
         global ScreemWindows, LKEY, Objs,JumpOtSten,wallpaperTextMenu,statusDJump
         pygame.mixer.music.load("music/Music_1.mp3")
-        pygame.mixer.music.set_volume(0.1)
+        pygame.mixer.music.set_volume(0.3)
         pygame.mixer.music.play()
         running = True
 
