@@ -1,0 +1,68 @@
+{
+  "start_position": [
+    1300,
+    1600
+  ],
+  "objects": {
+    "Block1": {
+      "cords": [
+        1000,
+        1800
+      ],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block2": {
+      "cords": [2100, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block3": {
+      "cords": [3200, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block4": {
+      "cords": [4300, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Block5": {
+      "cords": [5400, 1800],
+      "texture": "img/Tab.png",
+      "NBT": null
+    },
+    "Teleport": {
+      "cords": [5590, 1800],
+      "texture": "img/Trigger.png",
+      "NBT": "next"
+    },
+    "Portal": {
+      "cords": [5600, 1600],
+      "texture": "img/Green_Portal.png",
+      "NBT": null
+    },
+    "Big_Spikes1": {
+      "cords": [-100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes2": {
+      "cords": [1100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes3": {
+      "cords": [2300, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    }
+  },
+  "npcs": {
+    "npc1": {
+      "cords": [1200, 1550],
+      "texture": "img/player/stoit.jpg",
+      "text": "Акуратно с длинными прыжками"
+    }
+  }
+}
