@@ -1,0 +1,322 @@
+{
+  "start_position": [
+    1300,
+    1600
+  ],
+  "objects": {
+    "Block1": {
+      "cords": [
+        1000,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block2": {
+      "cords": [
+        1500,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block3": {
+      "cords": [
+        2000,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block4": {
+      "cords": [
+        2500,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block5": {
+      "cords": [
+        3000,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block6": {
+      "cords": [
+        3500,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block7": {
+      "cords": [
+        4000,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block8": {
+      "cords": [
+        4500,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Подстилка1": {
+      "cords": [
+        1000,
+        1800
+      ],
+      "texture": "img/Подстилка.png",
+      "NBT": null
+    },
+    "Подстилка2": {
+      "cords": [
+        2000,
+        1800
+      ],
+      "texture": "img/Подстилка.png",
+      "NBT": null
+    },
+    "Подстилка3": {
+      "cords": [
+        3000,
+        1800
+      ],
+      "texture": "img/Подстилка.png",
+      "NBT": null
+    },
+    "Подстилка4": {
+      "cords": [
+        4000,
+        1800
+      ],
+      "texture": "img/Подстилка.png",
+      "NBT": null
+    },
+    "Big_Spikes1": {
+      "cords": [
+        -100,
+        2500
+      ],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes2": {
+      "cords": [
+        1100,
+        2500
+      ],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes3": {
+      "cords": [
+        2300,
+        2500
+      ],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes4": {
+      "cords": [
+        3400,
+        2500
+      ],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes5": {
+      "cords": [
+        4500,
+        2500
+      ],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Portal": {
+      "cords": [
+        5000,
+        1400
+      ],
+      "texture": "img/Red_Portal.png",
+      "NBT": null
+    },
+    "Trigger": {
+      "cords": [
+        4990,
+        1800
+      ],
+      "texture": "img/Trigger.png",
+      "NBT": "exit"
+    }
+  },
+  "npcs": {
+    "npc1": {
+      "cords": [1100, 1650],
+      "texture": "img/enot.png",
+      "text": "Поздравляю! Ты добрался до фестиваля!\nМожешь ознакомиться с проектами других участников\nи поговорить с рокет боссом."
+    },
+    "Чел1": {
+      "cords": [1700, 1580],
+      "texture": "img/Чел1.png",
+      "text": "Может мой проект так себе,\nно за то посмотри какой класный значёк я нашёл!\nС ним меня точно заметят!"
+    },
+    "Чел2": {
+      "cords": [2700, 1580],
+      "texture": "img/Чел2.png",
+      "text": "Блин, у первого конкурсанта такой классный проект...\nДумаю он займёт первое место."
+    },
+    "Чел3": {
+      "cords": [3700, 1580],
+      "texture": "img/Чел3.png",
+      "text": "А я ничего не приготовил!\nЯ просто хотел получить киоск)"
+    },
+    "Киоск1": {
+      "cords": [1500, 1385],
+      "texture": "img/Киоск.png",
+      "text": "null"
+    },
+    "Киоск2": {
+      "cords": [2500, 1385],
+      "texture": "img/Киоск.png",
+      "text": "null"
+    },
+    "Киоск3": {
+      "cords": [3500, 1385],
+      "texture": "img/Киоск.png",
+      "text": "null"
+    },
+    "Значёк1": {
+      "cords": [1550, 1680],
+      "texture": "img/Значёк ртс.png",
+      "text": "null"
+    },
+    "Чайник": {
+      "cords": [1580, 1545],
+      "texture": "img/Чайник.png",
+      "text": "null"
+    },
+    "Ракета": {
+      "cords": [2580, 1600],
+      "texture": "img/Ракета.png",
+      "text": "null"
+    },
+    "Тарелка": {
+      "cords": [2650, 1580],
+      "texture": "img/Тарелка.png",
+      "text": "null"
+    },
+    "Рокетбосс": {
+      "cords": [4500, 1520],
+      "texture": "img/RocketBoss.png",
+      "text": "Йоу! Ты добрался до фестиваля!\nМожешь походить, посмотреть работы участников...\nА? Ты уже уходишь?\nОкей, тогда просто войди в портал позади меня."
+    },
+    "Трава2": {
+      "cords": [1250, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава3": {
+      "cords": [1320, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава4": {
+      "cords": [1400, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава5": {
+      "cords": [1600, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава6": {
+      "cords": [1670, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава7": {
+      "cords": [2000, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава8": {
+      "cords": [2200, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава9": {
+      "cords": [2250, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава10": {
+      "cords": [2320, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава11": {
+      "cords": [2400, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава12": {
+      "cords": [2600, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава13": {
+      "cords": [2670, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава14": {
+      "cords": [3000, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава15": {
+      "cords": [3200, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава16": {
+      "cords": [3250, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава17": {
+      "cords": [3400, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Трава18": {
+      "cords": [4000, 1765],
+      "texture": "img/Трава.png",
+      "text": "null"
+    },
+    "Цветок1": {
+      "cords": [3000, 1667],
+      "texture": "img/Цветок для травы.png",
+      "text": "null"
+    },
+    "Цветок2": {
+      "cords": [2100, 1667],
+      "texture": "img/Цветок для травы.png",
+      "text": "null"
+    },
+    "Цветок3": {
+      "cords": [1400, 1667],
+      "texture": "img/Цветок для травы.png",
+      "text": "null"
+    }
+  }
+}
