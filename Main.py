@@ -2,8 +2,16 @@ import pygame
 import sys
 from Setings import SetingsMenu 
 from TestRoom import TestRoom
+import yaml
 
+
+def Read_File():
+    with open('config.yaml') as f:
+        return yaml.safe_load(f)
 pygame.init()
+pygame.mixer.init()
+music_Nav = pygame.mixer.Sound("music/switch_button.mp3")
+
 
 screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 pygame.display.set_caption("Ещё хз")
@@ -32,7 +40,7 @@ fontN = pygame.font.SysFont(None, 90)
 fontB = pygame.font.SysFont(None, 90)
 
 LKEY = False
-RKEY = False
+
 
 running = True
 
@@ -42,31 +50,38 @@ running = True
 def exitIsGame():
     global running
     running = False
+
     pygame.quit()
     sys.exit()
 
 class Button:
-
+    play = False
+    setings = False
     def Button_Play():
         global RKEY, LKEY
         XY = [100, 300]
         HBOXBoutton = pygame.Rect(XY[0], XY[1], button.get_width(), button.get_height())
         name = "Играть"
 
+
         if HBOXBoutton.collidepoint(pygame.mouse.get_pos()):
             scaled_button = pygame.transform.scale(button, (button.get_width()*1.1, button.get_height()*1.1))  # в 2 раза больше
             screen.blit(scaled_button, (XY[0]-10, XY[1]-10))
             text = fontB.render(name, True, (0, 0, 0))
             screen.blit(text, (XY[0]+70, XY[1]+50))
+            if(Button.play):
+                music_Nav.play()
+                Button.play = False
             if (LKEY):
                 TestRoom.Main()
         else:
+            Button.play = True
             text = fontN.render(name, True, (0, 0, 0))
             screen.blit(button, (XY[0], XY[1]))
             screen.blit(text, (XY[0]+70, XY[1]+55))
 
     def Button_Setings():
-        global RKEY, LKEY,ScreemWindows
+        global LKEY,ScreemWindows
         XY = [100, 500]
         name = "Настройки"
         HBOXBoutton = pygame.Rect(XY[0], XY[1], button2.get_width(), button2.get_height())
@@ -75,17 +90,21 @@ class Button:
             text = fontB.render(name, True, (0, 0, 0))
             screen.blit(scaled_button, (XY[0]-10, XY[1]-10))
             screen.blit(text, (XY[0]+35, XY[1]+50))
+            if(Button.setings):
+                music_Nav.play()
+                Button.setings = False
             if (LKEY):
                 ScreemWindows=1
         else:
+            Button.setings = True
             screen.blit(button2, (XY[0], XY[1]))
-
             text = fontN.render(name, True, (0, 0, 0))
             screen.blit(text, (XY[0]+30, XY[1]+50))
 
 
 def ScreenLoop():
     screen.blit(wallpaper, (WallPaperXY[0], WallPaperXY[1]))
+
 
     if(WallPaperXY[2]==0):
         WallPaperXY[1] -= 1
@@ -99,7 +118,6 @@ def ScreenLoop():
 def Main():
     global ScreemWindows, LKEY, RKEY
     running = True
-
 
     while running:
         # Обработка событий
@@ -127,20 +145,24 @@ def Main():
         
 
         ScreenLoop()
+        music_Nav.set_volume(int(Read_File()['Vol']['All_music'])/10)  
 
         if (ScreemWindows==0):
 
             screen.blit(logo, (460, 40))
-            
+            text = fontB.render("Бумажки", True, (0, 0, 0))
+            screen.blit(text, (760, 120)) 
+
+
             Button.Button_Play()
             Button.Button_Setings()
 
         elif (ScreemWindows==1):
             if(SetingsMenu.Button_Back(screen, LKEY)==0):
                 ScreemWindows = 0
+            SetingsMenu.volM()
             SetingsMenu.Button_Vol(screen, LKEY)
             SetingsMenu.Tab(screen, LKEY)
-            SetingsMenu.Button_Music(screen, LKEY)
 
 
 

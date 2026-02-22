@@ -1,9 +1,18 @@
 import pygame
 import sys
 import json
+import yaml
 
 
+def Read_File():
+    with open('config.yaml') as f:
+        return yaml.safe_load(f)
+    
 pygame.init()
+pygame.mixer.init()
+music_jump = pygame.mixer.Sound("music/jump.mp3")
+music_jump.set_volume(int(Read_File()['Vol']['All_music'])/10)  
+
 
 screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 pygame.display.set_caption("Ещё хз")
@@ -16,7 +25,7 @@ button = pygame.image.load("img/Button_NotBlack.png")
 
 wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
 
-level = 3
+level = 1
 
 statusDJump = False
 
@@ -273,6 +282,8 @@ class TestRoom:
                     elif event.key == pygame.K_SPACE:
                         JumpOtSten =True
                         Player.v0 = 200
+                        if(Player.timeNoCal==0):
+                            music_jump.play()
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_SPACE:
                         JumpOtSten = False
