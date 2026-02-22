@@ -1,0 +1,58 @@
+{
+  "start_position": [
+    1300,
+    1600
+  ],
+  "objects": {
+    "Block1": {
+      "cords": [
+        1000,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block2": {
+      "cords": [2000, 1200],
+      "texture": "img/Стена2.png",
+      "NBT": null
+    },
+    "Spikes2": {
+      "cords": [2000, 1150],
+      "texture": "img/Spikes.png",
+      "NBT": null
+    },
+    "Big_Spikes1": {
+      "cords": [-100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes2": {
+      "cords": [1100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes3": {
+      "cords": [2300, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes4": {
+      "cords": [3400, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes5": {
+      "cords": [4500, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    }
+  },
+  "npcs": {
+    "npc1": {
+      "cords": [1100, 1650],
+      "texture": "img/enot.png",
+      "text": "На верхушку этой платформы лучше не вставать! Попробуй отскачить от стены в портал."
+    }
+  }
+}

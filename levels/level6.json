@@ -1,0 +1,63 @@
+{
+  "start_position": [
+    1300,
+    1600
+  ],
+  "objects": {
+    "Block1": {
+      "cords": [
+        1000,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": "give"
+    },
+    "Block2": {
+      "cords": [1500, 1400],
+      "texture": "img/Стена2.png",
+      "NBT": null
+    },
+    "Teleport": {
+      "cords": [1590, 1400],
+      "texture": "img/Trigger.png",
+      "NBT": "next"
+    },
+    "Portal": {
+      "cords": [1600, 1000],
+      "texture": "img/Green_Portal.png",
+      "NBT": null
+    },
+    "Big_Spikes1": {
+      "cords": [-100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes2": {
+      "cords": [1100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes3": {
+      "cords": [2300, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes4": {
+      "cords": [3400, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes5": {
+      "cords": [4500, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    }
+  },
+  "npcs": {
+    "npc1": {
+      "cords": [1100, 1650],
+      "texture": "img/enot.png",
+      "text": "Оу, тут слишком высокий выступ.\nЯ дам тебе возможность забираться по стенам.\nНажми пробел, подойдя в плотную к стене."
+    }
+  }
+}

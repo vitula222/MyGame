@@ -1,0 +1,68 @@
+{
+  "start_position": [
+    1500,
+    400
+  ],
+  "objects": {
+    "Block1": {
+      "cords": [
+        1000,
+        1800
+      ],
+      "texture": "img/block.png",
+      "NBT": null
+    },
+    "Block2": {
+      "cords": [1500, 1400],
+      "texture": "img/Стена2.png",
+      "NBT": null
+    },
+    "Block3": {
+      "cords": [1500, 900],
+      "texture": "img/Стена2.png",
+      "NBT": null
+    },
+    "Block4": {
+      "cords": [1500, 400],
+      "texture": "img/Стена2.png",
+      "NBT": null
+    },
+    "Portal": {
+      "cords": [2400, 2000],
+      "texture": "img/Green_Portal.png",
+      "NBT": "next"
+    },
+    "Big_Spikes1": {
+      "cords": [-100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes2": {
+      "cords": [1100, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes3": {
+      "cords": [2300, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes4": {
+      "cords": [3400, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes5": {
+      "cords": [4500, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    }
+  },
+  "npcs": {
+    "npc1": {
+      "cords": [1100, 1650],
+      "texture": "img/enot.png",
+      "text": "Поднимись наверх и спрыгни прямиком в потрал.\nОн будет где то внизу, так что ты его не сразу увидишь."
+    }
+  }
+}
