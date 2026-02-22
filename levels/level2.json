@@ -1,8 +1,8 @@
 {
-  "start_position": [600, 1300],
+  "start_position": [900, 1300],
   "objects": {
     "Block1": {
-      "cords": [600, 1600],
+      "cords": [550, 1600],
       "texture": "img/Tab.png",
       "NBT": null
     },
@@ -52,15 +52,15 @@
       "NBT": "next"
     },
     "Portal": {
-      "cords": [3350, 1050],
+      "cords": [3350, 850],
       "texture": "img/Green_Portal.png",
       "NBT": null
     }
   },
   "npcs": {
     "npc1": {
-      "cords": [600, 1350],
-      "texture": "img/player/stoit.jpg",
+      "cords": [700, 1450],
+      "texture": "img/enot.png",
       "text": "Нажми пробел что бы прыгнуть.\nА ещё остирегайся шипов"
     }
   }

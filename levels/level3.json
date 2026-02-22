@@ -66,7 +66,7 @@
       "NBT": "next"
     },
     "Portal": {
-      "cords": [3200, 1100],
+      "cords": [3200, 900],
       "texture": "img/Green_Portal.png",
       "NBT": null
     },
@@ -88,8 +88,8 @@
   },
   "npcs": {
     "npc1": {
-      "cords": [1200, 1550],
-      "texture": "img/player/stoit.jpg",
+      "cords": [1100, 1650],
+      "texture": "img/enot.png",
       "text": "Зажми Shift что бы бежать"
     }
   }

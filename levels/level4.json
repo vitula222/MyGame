@@ -38,7 +38,7 @@
       "NBT": "next"
     },
     "Portal": {
-      "cords": [5600, 1600],
+      "cords": [5600, 1400],
       "texture": "img/Green_Portal.png",
       "NBT": null
     },
@@ -56,12 +56,22 @@
       "cords": [2300, 2500],
       "texture": "img/Big_Spikes.png",
       "NBT": "kill"
+    },
+    "Big_Spikes4": {
+      "cords": [3400, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
+    },
+    "Big_Spikes5": {
+      "cords": [4500, 2500],
+      "texture": "img/Big_Spikes.png",
+      "NBT": "kill"
     }
   },
   "npcs": {
     "npc1": {
-      "cords": [1200, 1550],
-      "texture": "img/player/stoit.jpg",
+      "cords": [1100, 1650],
+      "texture": "img/enot.png",
       "text": "Акуратно с длинными прыжками"
     }
   }
