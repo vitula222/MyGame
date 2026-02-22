@@ -27,7 +27,7 @@ wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
 
 level = 8
 
-statusDJump = False
+statusDJump = True
 
 Smeshenie=[0,0]
 
@@ -125,7 +125,7 @@ class Player:#Player Class
 
     def getHBOXV(Obj):
         Up = pygame.Rect(Player.center[0], Player.center[1], Player.getPlayerTextura.get_width(), 10)
-        Down = pygame.Rect(Player.center[0], Player.center[1]+Player.getPlayerTextura.get_height(), Player.getPlayerTextura.get_width(), -10)
+        Down = pygame.Rect(Player.center[0]+5, Player.center[1]+Player.getPlayerTextura.get_height(), Player.getPlayerTextura.get_width(), -10)
         if (Obj.colliderect(Down)):
             return "Down"
         if (Obj.colliderect(Up)):
@@ -133,7 +133,7 @@ class Player:#Player Class
         return "None"
     
     def getHBOXTestDown(Obj):
-        Down = pygame.Rect(Player.center[0],Player.center[1]+Player.getPlayerTextura.get_height()-10, Player.getPlayerTextura.get_width(), -20)
+        Down = pygame.Rect(Player.center[0]+5,Player.center[1]+Player.getPlayerTextura.get_height()-10, Player.getPlayerTextura.get_width(), -20)
         if (Obj.colliderect(Down)):
             return "Down"
         return "None"
@@ -170,8 +170,6 @@ class Player:#Player Class
 def Camera():
     Smeshenie[0] = Player.getXY[0]
     Smeshenie[1] = Player.getXY[1]
-
-    print(Smeshenie)
 
     for i in Objs:
         i.setXY(-Smeshenie[0], -Smeshenie[1])
@@ -223,7 +221,7 @@ def HboxLogigs():
                 Player.timeNoCal = 0
                 Player.v0 = 200
 
-        elif (Player.getHBOXS(i.getHbox())=="Redy"):
+        if (Player.getHBOXS(i.getHbox())=="Redy"):
             if (JumpOtSten and statusDJump):
                 Player.setTexur("Read_up.png")
                 Player.timeNoCal = 0
