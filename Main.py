@@ -2,12 +2,16 @@ import pygame
 import sys
 from Setings import SetingsMenu 
 from TestRoom import TestRoom
+import yaml
 
 
+def Read_File():
+    with open('config.yaml') as f:
+        return yaml.safe_load(f)
 pygame.init()
 pygame.mixer.init()
-
 music_Nav = pygame.mixer.Sound("music/switch_button.mp3")
+
 
 screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 pygame.display.set_caption("Ещё хз")
@@ -46,6 +50,7 @@ running = True
 def exitIsGame():
     global running
     running = False
+
     pygame.quit()
     sys.exit()
 
@@ -89,7 +94,7 @@ class Button:
                 music_Nav.play()
                 Button.setings = False
             if (LKEY):
-                ScreemWindows=False
+                ScreemWindows=1
         else:
             Button.setings = True
             screen.blit(button2, (XY[0], XY[1]))
@@ -99,6 +104,7 @@ class Button:
 
 def ScreenLoop():
     screen.blit(wallpaper, (WallPaperXY[0], WallPaperXY[1]))
+
 
     if(WallPaperXY[2]==0):
         WallPaperXY[1] -= 1
@@ -112,7 +118,6 @@ def ScreenLoop():
 def Main():
     global ScreemWindows, LKEY, RKEY
     running = True
-
 
     while running:
         # Обработка событий
@@ -140,20 +145,24 @@ def Main():
         
 
         ScreenLoop()
+        music_Nav.set_volume(int(Read_File()['Vol']['All_music'])/10)  
 
         if (ScreemWindows==0):
 
             screen.blit(logo, (460, 40))
-            
+            text = fontB.render("Бумажки", True, (0, 0, 0))
+            screen.blit(text, (760, 120)) 
+
+
             Button.Button_Play()
             Button.Button_Setings()
 
         elif (ScreemWindows==1):
             if(SetingsMenu.Button_Back(screen, LKEY)==0):
                 ScreemWindows = 0
+            SetingsMenu.volM()
             SetingsMenu.Button_Vol(screen, LKEY)
             SetingsMenu.Tab(screen, LKEY)
-            SetingsMenu.Button_Music(screen, LKEY)
 
 
 

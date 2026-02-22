@@ -17,7 +17,7 @@ button = pygame.image.load("img/Button_NotBlack.png")
 
 wallpaperTextMenu = pygame.image.load("img/TextMenu.png")
 
-level = 3
+level = 1
 
 statusDJump = False
 

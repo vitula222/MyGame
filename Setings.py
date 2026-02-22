@@ -1,9 +1,13 @@
 import pygame
 import yaml
-import time
 
 
 pygame.init()
+
+
+pygame.mixer.init()
+music_Nav = pygame.mixer.Sound("music/switch_button.mp3")
+
 
 wallpaper = pygame.image.load("img/Wallpaper.jpg")
 
@@ -23,10 +27,13 @@ def Read_File():
         return yaml.safe_load(f)
 
 class SetingsMenu:
+    def volM():
+        music_Nav.set_volume(int(Read_File()['Vol']['All_music'])/10) 
     def Tab(screen, LKEY):
         screen.blit(tab, (600, 30))
 
-
+    Back = False
+    Vol = False
 
     def Button_Back(screen, LKEY):
         XY = [50, 50]
@@ -38,9 +45,13 @@ class SetingsMenu:
             screen.blit(scaled_button, (XY[0]-10, XY[1]-10))
             text = fontB.render(name, True, (0, 0, 0))
             screen.blit(text, (XY[0]+30, XY[1]+20))
+            if(SetingsMenu.Back):
+                music_Nav.play()
+                SetingsMenu.Back = False
             if (LKEY):
                 return 0
         else:
+            SetingsMenu.Back = True
             text = fontN.render(name, True, (0, 0, 0))
             screen.blit(button, (XY[0], XY[1]))
             screen.blit(text, (XY[0]+20, XY[1]+20))
@@ -57,7 +68,12 @@ class SetingsMenu:
             screen.blit(scaled_button, (XY[0]-10, XY[1]-10))
             text = fontB.render(name, True, (0, 0, 0))
             screen.blit(text, (XY[0]+70, XY[1]+50))
+            if(SetingsMenu.Vol):
+                music_Nav.play()
+                SetingsMenu.Vol = False
+
             if (LKEY):
+                SetingsMenu.Vol = True
                 scaled_button = pygame.transform.scale(button2, (button2.get_width()*1.2, button2.get_height()*1.2))  # в 2 раза больше
                 screen.blit(scaled_button, (XY[0]-10, XY[1]-10))
                 text = fontB.render(name, True, (0, 0, 0))
@@ -82,37 +98,4 @@ class SetingsMenu:
             screen.blit(text, (XY[0]+70, XY[1]+55))
             return
         
-    def Button_Music(screen, LKEY):
-        i = Read_File()['Vol']['Music']
 
-        XY = [100, 450]
-        HBOXBoutton = pygame.Rect(XY[0], XY[1], button2.get_width(), button2.get_height())
-        name = "Music: " + str(i)
-
-        if HBOXBoutton.collidepoint(pygame.mouse.get_pos()):
-            scaled_button = pygame.transform.scale(button2, (button2.get_width()*1.1, button2.get_height()*1.1))  # в 2 раза больше
-            screen.blit(scaled_button, (XY[0]-10, XY[1]-10))
-            text = fontB.render(name, True, (0, 0, 0))
-            screen.blit(text, (XY[0]+50, XY[1]+50))
-            if (LKEY):
-                scaled_button = pygame.transform.scale(button2, (button2.get_width()*1.2, button2.get_height()*1.2))  # в 2 раза больше
-                screen.blit(scaled_button, (XY[0]-10, XY[1]-10))
-                text = fontB.render(name, True, (0, 0, 0))
-                screen.blit(text, (XY[0]+60, XY[1]+60))
-
-                i = not i
-                date = {
-                    "Vol":{
-                        "All_music": Read_File()['Vol']['All_music'],
-                        "Music": i
-                    }
-                }
-                Edit_File(date)
-
-                return
-        else:
-            text = fontN.render(name, True, (0, 0, 0))
-            screen.blit(button2, (XY[0], XY[1]))
-            screen.blit(text, (XY[0]+50, XY[1]+55))
-            return
-            
