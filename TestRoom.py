@@ -309,7 +309,6 @@ class TestRoom:
 
             screen.blit(wallpaper, (0-Smeshenie[0], 0-Smeshenie[1]))
     
-            screen.blit(Player.getPlayerTextura, (960,540))
 
             for i in Objs:
                 screen.blit(i.getTexur(), i.getXY())
@@ -324,6 +323,9 @@ class TestRoom:
                         text = font.render(a, True, (255, 255, 255))
                         screen.blit(text, (530, 840+20*ints)) 
                         ints+=1
+
+            screen.blit(Player.getPlayerTextura, (960,540))
+
 
 
             Player.jump(0.1)
